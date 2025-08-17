@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Numbers Project</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #eef7ff;
+            padding: 40px;
+        }
+
+        h1 {
+            color: #004080;
+        }
+
+        #output {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-top: 20px;
+            padding: 15px;
+            border: 2px solid #004080;
+            border-radius: 8px;
+            display: inline-block;
+            background: white;
+            min-width: 250px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 25px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 6px;
+            background: #004080;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0066cc;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Random Numbers Generator</h1>
+    <p id="output">Click the button to start!</p>
+    <br>
+    <button onclick="generateNumbers()">Generate Numbers</button>
+
+    <script>
+        function generateNumbers() {
+            let count = 0;      // loop counter
+            let result = "";    // store the numbers
+            let total = 0;      // store the sum of numbers
+
+            // generate 10 random numbers
+            while (count < 10) {
+                let randomNum = Math.floor(Math.random() * 100);
+                result += randomNum + " ";
+                total += randomNum;  // add each number to the total
+                count++;
+            }
+
+            // calculate average
+            let average = total / 10;
+
+            // display numbers and average
+            document.getElementById("output").innerHTML =
+                "Numbers: " + result + "<br>Average: " + average.toFixed(2);
+        }
+    </script>
+</body>
+
+</html>
